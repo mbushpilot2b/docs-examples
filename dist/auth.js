@@ -5,14 +5,14 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 const users = [
     {
         username: 'admin',
-        firstName: 'Admin',
-        lastName: 'User',
+        firstName: 'John',
+        lastName: 'Doe',
         password: bcrypt.hashSync('password', 8), // In real app, hash this properly
     },
     {
         username: 'user',
-        firstName: 'Regular',
-        lastName: 'User',
+        firstName: 'Jane',
+        lastName: 'Doe',
         password: bcrypt.hashSync('password', 8),
     },
 ];

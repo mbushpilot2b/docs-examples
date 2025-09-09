@@ -13,14 +13,14 @@ export interface User {
 const users: Array<User & { password: string }> = [
   {
     username: 'admin',
-    firstName: 'Admin',
-    lastName: 'User',
+    firstName: 'John',
+    lastName: 'Doe',
     password: bcrypt.hashSync('password', 8), // In real app, hash this properly
   },
   {
     username: 'user',
-    firstName: 'Regular',
-    lastName: 'User',
+    firstName: 'Jane',
+    lastName: 'Doe',
     password: bcrypt.hashSync('password', 8),
   },
 ];
