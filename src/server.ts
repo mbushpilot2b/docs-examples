@@ -1,11 +1,10 @@
 import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { applyMiddleware } from 'graphql-middleware';
+import { getUserFromToken, AuthContext } from './auth.js';
 import { typeDefs } from './typedefs.js';
 import { resolvers } from './resolvers.js';
-import { getUserFromToken, AuthContext, authenticateUser, generateToken } from './auth.js';
-import { permissions } from './shield.js';
+import { permissions } from './shields.js';
 
 // Create executable schema
 const schema = makeExecutableSchema({
@@ -23,7 +22,6 @@ export const server = new ApolloServer({
 
 // Context function to handle authentication
 const context = async ({ req }: any): Promise<AuthContext> => {
-  // Extract token from headers for simplicity (in production, use cookies)
   const authHeader = req.headers.authorization || '';
   const token = authHeader.replace('Bearer ', '');
   const user = token ? getUserFromToken(token) : undefined;
