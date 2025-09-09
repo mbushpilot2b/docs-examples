@@ -1,0 +1,46 @@
+{
+  "name": "as5-getting-started",
+  "version": "1.0.0",
+  "description": "An example of getting started with Apollo Server 5",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "postinstall": "npm run compile",
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js",
+    "dev": "concurrently -k -r \"npm:compile:watch\" \"npm:start:watch\"",
+    "compile:watch": "tsc -w --preserveWatchOutput",
+    "start:watch": "nodemon --watch dist --ext js --exec \"node dist/index.js\"",
+    "test:shield": "node test-shield.js",
+    "test:login": "node test-login-token.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^5.0.0",
+    "@graphql-tools/schema": "^10.0.25",
+    "@types/bcryptjs": "^3.0.0",
+    "@types/body-parser": "^1.19.6",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "graphql": "^16.11.0",
+    "graphql-middleware": "^6.1.35",
+    "graphql-shield": "^7.6.5",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2",
+    "typescript": "^5.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.10"
+  }
+}
