@@ -1,4 +1,4 @@
-import { allow, deny } from 'graphql-shield';
+import { allow, deny, and } from 'graphql-shield';
 import { isAuthenticated } from '../rules.js';
 
 // Export user-related permission rules (rule tree)
